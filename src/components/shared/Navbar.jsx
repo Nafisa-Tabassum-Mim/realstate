@@ -3,7 +3,7 @@ import '../../App.css';
 
 const Navbar = () => {
     const links = <>
-        <li className="font-medium text-lg hover:bg-black"><NavLink to="/" >Home</NavLink></li>
+        <li className="font-medium text-lg"><NavLink to="/" >Home</NavLink></li>
         <li className="font-medium  text-lg"><NavLink to="/books">Your Resorts</NavLink></li>
         <li className="font-medium text-lg"><NavLink to="/readingpages">Update Profile</NavLink></li>
         <li className="font-medium text-lg" ><NavLink to="/readingpages">User Profile</NavLink></li>
@@ -20,7 +20,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost text-xl">Island <span className="text-[#FFA500]"> Resorts </span></Link>
+                <Link to='/' className="btn btn-ghost lg:text-2xl">Island <span className="text-[#FFA500]"> Resorts </span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal  px-1">
