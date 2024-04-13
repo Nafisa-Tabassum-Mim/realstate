@@ -8,3 +8,8 @@
 }
 
 
+.drop-btn {
+  position: absolute; 
+  z-index: 999; 
+
+}
