@@ -1,0 +1,45 @@
+import { Link } from "react-router-dom";
+
+
+const Register = () => {
+    return (
+        <div className="flex justify-center mx-4">
+            <div className="card  w-full max-w-md shadow-md shadow-orange-500 shadow-t-2 bg-base-100 my-24 ">
+                <form className="card-body">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" required name="name" placeholder="Name" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" required name="photo" placeholder="Photo URL" className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="email" placeholder="email" className="input input-bordered " required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Password</span>
+                        </label>
+                        <input type="password" placeholder="password" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn bg-orange-400 text-white hover:bg-orange-400 ">Register</button>
+                    </div>
+                    <p className="text-center mt-4">Already have an account ? <Link className="text-orange-400 font-bold" to="/login">Login</Link> </p>
+
+                </form>
+
+            </div >
+        </div>
+    );
+};
+
+export default Register;
