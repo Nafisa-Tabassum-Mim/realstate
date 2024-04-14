@@ -13,6 +13,7 @@ import Root from './components/Root/Root.jsx';
 import Login from './components/pages/Login.jsx';
 import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
+import UserProfile from './components/pages/UserProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/userprofile',
+        element: <UserProfile></UserProfile>
       }
 
     ]
