@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn, signInWithGoogle } = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -20,7 +20,26 @@ const Login = () => {
             .then(() => {
                 toast.success('You are login now')
             })
-            .catch((error)=>{
+            .catch((error) => {
+                toast.error(error.code)
+            })
+    }
+
+    const handleGoogleSign = () => {
+        signInWithGoogle()
+            .then((result) => {
+
+            })
+            .catch((error) => {
+                toast.error(error.code)
+            })
+    }
+    const handleGithubSign = () => {
+        signInWithGoogle()
+            .then((result) => {
+
+            })
+            .catch((error) => {
                 toast.error(error.code)
             })
     }
@@ -53,9 +72,9 @@ const Login = () => {
                     <div className="flex items-center  justify-center">
                         <div className="border-b border-black w-full"></div>
                         <div className="flex items-center gap-1 relative z-10">
-                            <p className="border border-orange-400 rounded-lg p-2 text-[30px]"><FcGoogle /></p>
+                            <p onClick={handleGoogleSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><FcGoogle /></p>
                             <p className="text-gray-500">or</p>
-                            <p className="border border-orange-400 rounded-lg p-2 text-[30px]"><SiGithub /></p>
+                            <p onClick={handleGithubSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><SiGithub /></p>
                         </div>
                         <div className="border-b border-black w-full"></div>
                     </div>
