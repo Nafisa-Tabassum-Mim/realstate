@@ -1,22 +1,45 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
+import { useContext } from "react";
+import { AuthContext } from "../firebase/AuthProvider";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
+
+    const handleLogin = e => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+        console.log(email, password)
+
+        signIn(email, password)
+            .then(() => {
+                toast.success('You are login now')
+            })
+            .catch((error)=>{
+                toast.error(error.code)
+            })
+    }
+
     return (
         <div className="flex justify-center mx-4">
             <div className="card  w-full max-w-md shadow-md shadow-orange-500 shadow-t-2 bg-base-100 my-24 ">
-                <form className="card-body">
+                <form className="card-body" onSubmit={handleLogin}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" placeholder="email" className="input input-bordered " required />
+                        <input type="email" placeholder="email" name="email" className="input input-bordered " required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" className="input input-bordered" required />
+                        <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
@@ -41,6 +64,7 @@ const Login = () => {
                 </form>
 
             </div >
+            <ToastContainer></ToastContainer>
         </div>
 
     );

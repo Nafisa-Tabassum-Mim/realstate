@@ -11,8 +11,8 @@ const Register = () => {
     
     const handleRegister=e=>{
         e.preventDefault();
-        const name = e.target.name.value
-        const photo = e.target.photo.value
+        // const name = e.target.name.value
+        // const photo = e.target.photo.value
         const email = e.target.email.value
         const password = e.target.password.value
         // console.log(name,photo,email,password)
@@ -20,15 +20,15 @@ const Register = () => {
 
         // check pass 
         if (password.length<6){
-            toast.error('Password must be 6 character long !')
+            toast.warning('Password must be 6 character long !')
             return
         }
         else if (!/[A-Z]/.test(password)){
-            toast.error('Password should have at least one uppercase !')
+            toast.warning('Password should have at least one uppercase !')
             return
         }
         else if (!/[a-z]/.test(password)){
-            toast.error('Password should have at least one lowercase !')
+            toast.warning('Password should have at least one lowercase !')
             return
         }
 

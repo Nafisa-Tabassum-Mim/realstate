@@ -1,7 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import '../../App.css';
+import { useContext } from "react";
+import { AuthContext } from "../firebase/AuthProvider";
 
 const Navbar = () => {
+
+    const { logOut, user } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch()
+    }
+
     const links = <>
         <li className="font-medium text-lg"><NavLink to="/" >Home</NavLink></li>
         <li className="font-medium  text-lg"><NavLink to="/books">Your Resorts</NavLink></li>
@@ -28,8 +39,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn bg-[#FFA500] text-white mr-2">Logout</a>
-                <Link to='/login' className="btn bg-[#FFA500] text-white">Login</Link>
+                {
+                    user ?
+                        <button onClick={handleLogout} className="btn bg-[#FFA500] text-white mr-2">Logout</button>
+                        :
+                        <Link to='/login' className="btn bg-[#FFA500] text-white">Login</Link>
+                }
             </div>
         </div>
     );
