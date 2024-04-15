@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import '../../App.css';
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
@@ -6,10 +6,14 @@ import { AuthContext } from "../firebase/AuthProvider";
 const Navbar = () => {
 
     const { logOut, user } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogout = () => {
         logOut()
-            .then()
+            .then(()=>{
+                navigate(location?.state ? location.state : '/')
+            })
             .catch()
     }
 
@@ -17,7 +21,9 @@ const Navbar = () => {
         <li className="font-medium text-lg"><NavLink to="/" >Home</NavLink></li>
         <li className="font-medium  text-lg"><NavLink to="/books">Your Resorts</NavLink></li>
         <li className="font-medium text-lg"><NavLink to="/updateprofile">Update Profile</NavLink></li>
-        <li className="font-medium text-lg" ><NavLink to="/userprofile">User Profile</NavLink></li>
+        {
+            user && <><li className="font-medium text-lg" ><NavLink to="/userprofile">User Profile</NavLink></li></>
+        }
     </>
 
     return (

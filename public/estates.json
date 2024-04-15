@@ -1,0 +1,99 @@
+[
+    {
+        "id": 1,
+        "estate_title": "Luxury resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/gS5tZvD/house-landscape-pool-relaxation-garden-1203-4900.jpg",
+        "description": "Beautiful luxury villa with stunning ocean views",
+        "price": "$1,500,000",
+        "Status": "For Rent",
+        "Area": "5000 sq ft",
+        "location": "Malibu, California",
+        "facilities": [
+            "Swimming Pool",
+            "Gym",
+            "Home Theater",
+            "Garden"
+        ]
+    },
+    {
+        "id": 2,
+        "estate_title": "Saint pole resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/Kh24hKZ/istockphoto-119926339-612x612.jpg",
+        "description": "Charming apartment in the heart of the city",
+        "price": "$500,000",
+        "Status": "For Sale",
+        "Area": "1000 sq ft",
+        "location": "New York City, New York",
+        "facilities": [
+            "Balcony",
+            "Fitness Center",
+            "Parking Space"
+        ]
+    },
+    {
+        "id": 3,
+        "estate_title": "Beachfront resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/5RrNn12/499218110.jpg",
+        "description": "Modern condo with panoramic views of the beach",
+        "price": "$800,000",
+        "Status": "For Rent",
+        "Area": "1500 sq ft",
+        "location": "Miami, Florida",
+        "facilities": [
+            "Beach Access",
+            "Poolside Bar",
+            "Tennis Courts"
+        ]
+    },
+    {
+        "id": 4,
+        "estate_title": "Family resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/GpKtw8C/960x0.webp",
+        "description": "Spacious family home with a large backyard",
+        "price": "$700,000",
+        "Status": "For Rent",
+        "Area": "3000 sq ft",
+        "location": "Austin, Texas",
+        "facilities": [
+            "Backyard",
+            "Playground",
+            "Study Room"
+        ]
+    },
+    {
+        "id": 5,
+        "estate_title": "Lakefront Cottage resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/qL8GcSC/images-2.jpg",
+        "description": "Quaint cottage nestled on the shores of a serene lake",
+        "price": "$400,000",
+        "Status": "For Sale",
+        "Area": "1200 sq ft",
+        "location": "Lake Tahoe, California",
+        "facilities": [
+            "Boat Dock",
+            "Fire Pit",
+            "Deck"
+        ]
+    },
+    {
+        "id": 6,
+        "estate_title": "Mountain Retreat resort",
+        "segment_name": "Hospitality:",
+        "image": "https://i.ibb.co/Ld8G1rv/main-pool-view.jpg",
+        "description": "Escape to this cozy mountain retreat surrounded by nature",
+        "price": "$600,000",
+        "Status": "For Sale",
+        "Area": "2000 sq ft",
+        "location": "Aspen, Colorado",
+        "facilities": [
+            "Hot Tub",
+            "Hiking Trails",
+            "Ski Access"
+        ]
+    }
+]

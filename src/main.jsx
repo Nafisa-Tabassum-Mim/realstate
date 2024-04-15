@@ -15,6 +15,7 @@ import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
 import UserProfile from './components/pages/UserProfile.jsx';
 import UpdateProfile from './components/pages/UpdateProfile.jsx';
+import PrivateRoute from './components/firebase/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('/estates.json')
       },
       {
         path: '/login',
@@ -39,8 +41,8 @@ const router = createBrowserRouter([
         element: <UserProfile></UserProfile>
       },
       {
-        path:'/updateprofile',
-        element:<UpdateProfile></UpdateProfile>
+        path: '/updateprofile',
+        element: <PrivateRoute> <UpdateProfile></UpdateProfile> </PrivateRoute>
       }
 
     ]

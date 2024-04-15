@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
 
     const { createUser, updateUserId } = useContext(AuthContext)
-
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleRegister = e => {
         e.preventDefault();
@@ -39,7 +40,7 @@ const Register = () => {
                 toast.success('Your id is created successfully')
                 updateUserId(name, photo)
                     .then(() => {
-
+                        navigate(location?.state ? location.state : '/')
                     })
             })
             .catch((error) => {

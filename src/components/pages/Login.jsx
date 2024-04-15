@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { useContext } from "react";
@@ -8,7 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext)
+    const { signIn, signInWithGoogle, signWithGithub } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handleLogin = e => {
         e.preventDefault()
@@ -19,6 +21,7 @@ const Login = () => {
         signIn(email, password)
             .then(() => {
                 toast.success('You are login now')
+                navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
                 toast.error(error.code)
@@ -28,6 +31,7 @@ const Login = () => {
     const handleGoogleSign = () => {
         signInWithGoogle()
             .then((result) => {
+                navigate(location?.state ? location.state : '/')
 
             })
             .catch((error) => {
@@ -35,9 +39,9 @@ const Login = () => {
             })
     }
     const handleGithubSign = () => {
-        signInWithGoogle()
+        signWithGithub()
             .then((result) => {
-
+                navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
                 toast.error(error.code)
@@ -72,9 +76,9 @@ const Login = () => {
                     <div className="flex items-center  justify-center">
                         <div className="border-b border-black w-full"></div>
                         <div className="flex items-center gap-1 relative z-10">
-                            <p onClick={handleGoogleSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><FcGoogle /></p>
+                            <button onClick={handleGoogleSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><FcGoogle /></button>
                             <p className="text-gray-500">or</p>
-                            <p onClick={handleGithubSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><SiGithub /></p>
+                            <button onClick={handleGithubSign} className="border border-orange-400 rounded-lg p-2 text-[30px]"><SiGithub /></button>
                         </div>
                         <div className="border-b border-black w-full"></div>
                     </div>
