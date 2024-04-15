@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const Estate = ({ estate }) => {
-    console.log(estate)
+    const { id, image, estate_title, Status, location, price, Area } = estate
 
-    const {image, estate_title,Status,location,price,Area} = estate
     return (
         <div className="bg-base-100 m-4  shadow-md shadow-orange-500">
             <figure className=" ">
@@ -11,16 +11,6 @@ const Estate = ({ estate }) => {
             </figure>
 
             <div className="card-body ">
-                {/* <div className="flex">
-                    {
-                        tags.map(tag => (
-                            <div key={tag}>
-                                <button className="text-[#23BE0A] rounded-2xl bg-gray-50 font-semibold px-4 mr-2 flex-shrink-0">{tag}</button>
-                            </div>
-                        ))
-                    }
-                </div> */}
-
                 <h2 className="text-xl font-bold">{estate_title}</h2>
                 <p className="text-base font-medium border-b-2 pb-4 border-dashed" > {status}</p>
                 <div className="font-medium flex justify-between">
@@ -36,7 +26,7 @@ const Estate = ({ estate }) => {
                     </div>
                 </div>
                 <div className="font-medium flex justify-between">
-                    <button className="btn text-white bg-orange-400"> View Property</button>
+                    <Link to={`/${id}`} className="btn text-white bg-orange-400"> View Property</Link>
                     <div className="">
                         {/* <p>{Area}</p> */}
                     </div>
