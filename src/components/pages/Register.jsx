@@ -6,41 +6,45 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
 
-    const {createUser}= useContext(AuthContext)
+    const { createUser, updateUserId } = useContext(AuthContext)
 
-    
-    const handleRegister=e=>{
+
+    const handleRegister = e => {
         e.preventDefault();
-        // const name = e.target.name.value
-        // const photo = e.target.photo.value
+        const name = e.target.name.value
+        const photo = e.target.photo.value
         const email = e.target.email.value
         const password = e.target.password.value
         // console.log(name,photo,email,password)
 
 
         // check pass 
-        if (password.length<6){
+        if (password.length < 6) {
             toast.warning('Password must be 6 character long !')
             return
         }
-        else if (!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             toast.warning('Password should have at least one uppercase !')
             return
         }
-        else if (!/[a-z]/.test(password)){
+        else if (!/[a-z]/.test(password)) {
             toast.warning('Password should have at least one lowercase !')
             return
         }
 
         // create user 
-        createUser(email,password)
-        .then((result)=>{
-            console.log(result.user)
-            toast.success('Your id is created successfully')
-        })
-        .catch((error)=>{
-            toast.error(error.code)
-        })
+        createUser(email, password)
+            .then((result) => {
+                console.log(result.user)
+                toast.success('Your id is created successfully')
+                updateUserId(name, photo)
+                    .then(() => {
+
+                    })
+            })
+            .catch((error) => {
+                toast.error(error.code)
+            })
     }
 
     return (
@@ -81,7 +85,7 @@ const Register = () => {
             </div >
             <ToastContainer />
         </div>
-        
+
     );
 };
 

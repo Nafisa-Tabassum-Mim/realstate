@@ -14,6 +14,7 @@ import Login from './components/pages/Login.jsx';
 import Register from './components/pages/Register.jsx';
 import AuthProvider from './components/firebase/AuthProvider.jsx';
 import UserProfile from './components/pages/UserProfile.jsx';
+import UpdateProfile from './components/pages/UpdateProfile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: '/userprofile',
         element: <UserProfile></UserProfile>
+      },
+      {
+        path:'/updateprofile',
+        element:<UpdateProfile></UpdateProfile>
       }
 
     ]

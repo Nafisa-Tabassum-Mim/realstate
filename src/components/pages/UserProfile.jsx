@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
     const { user } = useContext(AuthContext);
@@ -35,7 +36,7 @@ const UserProfile = () => {
                                     <input type="email" name="email" placeholder="email" className="input input-bordered" defaultValue={user.email} />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn bg-orange-400 text-white hover:bg-orange-400">Edit Profile</button>
+                                    <Link to='/updateprofile' className="btn bg-orange-400 text-white hover:bg-orange-400">Edit Profile</Link>
                                 </div>
                             </form>
                         </div>
