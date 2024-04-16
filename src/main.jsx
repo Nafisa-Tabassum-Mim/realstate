@@ -17,6 +17,7 @@ import UserProfile from './components/pages/UserProfile.jsx';
 import UpdateProfile from './components/pages/UpdateProfile.jsx';
 import PrivateRoute from './components/firebase/PrivateRoute.jsx';
 import EstateDetails from './components/Estate/EstateDetails.jsx';
+import BookedResort from './components/Estate/BookedResort.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/:id',
-        element: <EstateDetails></EstateDetails>,
+        element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
+        loader: () => fetch('/estates.json')
+      },
+      {
+        path: '/yourresorts',
+        element: <PrivateRoute><BookedResort></BookedResort></PrivateRoute>,
         loader: () => fetch('/estates.json')
       },
       {

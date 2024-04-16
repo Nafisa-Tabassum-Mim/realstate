@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const links = <>
         <li className="font-medium text-lg"><NavLink to="/" >Home</NavLink></li>
-        <li className="font-medium  text-lg"><NavLink to="/books">Your Resorts</NavLink></li>
+        <li className="font-medium  text-lg"><NavLink to="/yourresorts">Your Resorts</NavLink></li>
         <li className="font-medium text-lg"><NavLink to="/updateprofile">Update Profile</NavLink></li>
         {
             user && <><li className="font-medium text-lg" ><NavLink to="/userprofile">User Profile</NavLink></li></>
