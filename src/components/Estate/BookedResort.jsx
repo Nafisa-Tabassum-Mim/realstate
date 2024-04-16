@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getBookedListId, removeBookedListId } from "./BookedStorage";
+import { Helmet } from "react-helmet-async";
 
 const BookedResort = () => {
 
@@ -31,6 +32,9 @@ const BookedResort = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Your Booked Resorts</title>
+            </Helmet>
             {bookedEstate.length === 0 ? (
                 <div className=" h-[400px] w-full flex flex-col justify-center items-center gap-2">
                     <p className="text-2xl font-semibold">Your Booked Cart is empty</p>

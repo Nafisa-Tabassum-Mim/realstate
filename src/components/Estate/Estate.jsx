@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { getBookedListId, setBookedId } from "./BookedStorage";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import 'animate.css';
 
 const Estate = ({ estate }) => {
     const { id, image, estate_title, Status, location, price, Area } = estate
 
 
     return (
-        <div className="bg-base-100 m-4  shadow-md shadow-orange-500">
+        <div className="bg-base-100 m-4  shadow-md shadow-orange-500  animate__animated animate__backInUp animate__delay-1s ">
             <figure className=" ">
                 <img src={image} alt="Shoes" className=" h-[280px] w-full" />
             </figure>

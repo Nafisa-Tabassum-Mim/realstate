@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateProfile = () => {
@@ -25,6 +26,9 @@ const UpdateProfile = () => {
 
     return (
         <div>
+             <Helmet>
+                <title>Update Profile</title>
+            </Helmet>
             {
                 user && <>
                     <div className="card w-full shadow-md shadow-orange-500 shadow-t-2 bg-base-100 max-w-xl flex mx-auto my-20">

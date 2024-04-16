@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { getBookedListId, setBookedId } from "./BookedStorage";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 
 const EstateDetails = () => {
@@ -30,6 +31,9 @@ const EstateDetails = () => {
 
     return (
         <div className="flex flex-col md:flex-row items-center justify-center gap-x-14 mt-8 mx-4 mb-8">
+              <Helmet>
+                <title> {estate.estate_title} </title>
+            </Helmet>
             <div className="w-3/4 md:w-1/2">
                 <img src={estate.image} className="max-h-[560px] w-full mb-8" alt="estate Cover" />
             </div>

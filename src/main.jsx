@@ -18,6 +18,7 @@ import UpdateProfile from './components/pages/UpdateProfile.jsx';
 import PrivateRoute from './components/firebase/PrivateRoute.jsx';
 import EstateDetails from './components/Estate/EstateDetails.jsx';
 import BookedResort from './components/Estate/BookedResort.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProvider>
+
   </React.StrictMode>,
 )

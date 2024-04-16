@@ -1,12 +1,17 @@
 import { useContext } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const UserProfile = () => {
     const { user } = useContext(AuthContext);
 
     return (
+        
         <div className="flex flex-col md:flex-row mx-4 md:mx-auto my-24 gap-8 max-w-5xl">
+             <Helmet>
+                <title>User Profile </title>
+            </Helmet>
             {user &&
                 <>
                     <div className="h-[300px] md:h-[420px] rounded-xl flex flex-col justify-center items-center md:w-1/3 shadow-md shadow-orange-500 shadow-t-2">
