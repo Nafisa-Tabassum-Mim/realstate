@@ -8,10 +8,11 @@ const Navbar = () => {
     const { logOut, user } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    console.log(user)
 
     const handleLogout = () => {
         logOut()
-            .then(()=>{
+            .then(() => {
                 navigate(location?.state ? location.state : '/')
             })
             .catch()
@@ -47,9 +48,21 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <button onClick={handleLogout} className="btn bg-[#FFA500] text-white mr-2">Logout</button>
+                        (
+                            <>
+                                <div tabIndex={0} role="button" data-tip={`${user.displayName}`} className="tooltip tooltip-bottom tooltip-bg-orange-500 z-50 btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+                                    </div>
+                                </div>
+                                <button onClick={handleLogout} className="btn bg-[#FFA500] text-white mr-2">Logout</button>
+                            </>
+
+                        )
                         :
-                        <Link to='/login' className="btn bg-[#FFA500] text-white">Login</Link>
+                        (
+                            <Link to='/login' className="btn bg-[#FFA500] text-white">Login</Link>
+                        )
                 }
             </div>
         </div>
