@@ -35,7 +35,6 @@ const AuthProvider = ({ children }) => {
     // check if the user is there or not 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log('user in the auth state changed', user)
             setUser(user)
             setLoading(false)
         });
@@ -72,7 +71,8 @@ const AuthProvider = ({ children }) => {
         loading,
         signInWithGoogle,
         signWithGithub,
-        updateUserId
+        updateUserId,
+        
     }
 
 

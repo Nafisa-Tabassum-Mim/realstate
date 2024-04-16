@@ -31,3 +31,13 @@
 .swiper-button-next {
     color: #FFA500; 
 }
+
+@media (max-width: 600px) {
+  .swiper {
+    height: 350px; 
+  }
+  
+  .swiper-slide img {
+    height: 350px; 
+  }
+}

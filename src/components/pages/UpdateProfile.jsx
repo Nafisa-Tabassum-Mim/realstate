@@ -7,14 +7,13 @@ import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
 
-    const { user, updateUserId } = useContext(AuthContext)
+    const { user, updateUserId} = useContext(AuthContext)
 
     const handleUpdate = e => {
         e.preventDefault()
 
         const name = e.target.name.value
         const photo = e.target.photo.value
-        // console.log(name, photo)
 
         updateUserId(name, photo)
             .then(() => {
@@ -31,7 +30,7 @@ const UpdateProfile = () => {
             </Helmet>
             {
                 user && <>
-                    <div className="card w-full shadow-md shadow-orange-500 shadow-t-2 bg-base-100 max-w-xl flex mx-auto my-20">
+                    <div className="card w-full shadow-md shadow-orange-500 shadow-t-2 bg-base-100 max-w-xl flex md:mx-auto  my-20">
                         <form className="card-body" onSubmit={handleUpdate} >
                             <div className="form-control">
                                 <label className="label">
