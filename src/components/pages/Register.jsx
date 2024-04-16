@@ -1,14 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../firebase/AuthProvider";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
 
     const { createUser, updateUserId } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    const [showPass,setshowPass]= useState(false)
 
     const handleRegister = e => {
         e.preventDefault();
@@ -16,7 +19,6 @@ const Register = () => {
         const photo = e.target.photo.value
         const email = e.target.email.value
         const password = e.target.password.value
-        // console.log(name,photo,email,password)
 
 
         // check pass 
@@ -36,7 +38,6 @@ const Register = () => {
         // create user 
         createUser(email, password)
             .then((result) => {
-                console.log(result.user)
                 toast.success('Your id is created successfully')
                 updateUserId(name, photo)
                     .then(() => {
@@ -74,7 +75,14 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <div className="relative">
+                       <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
+                        <span className="absolute top-3 right-3" onClick={() => setshowPass(!showPass)}>
+                            {showPass ? <IoEye /> : <IoEyeOff />
+                            }
+
+                        </span>
+                       </div>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn bg-orange-400 text-white hover:bg-orange-400 ">Register</button>

@@ -15,6 +15,7 @@ const setBookedId = (id) => {
     }
     return exist 
 }
+
 const removeBookedListId = (id) => {
     let BookedList = JSON.parse(localStorage.getItem('Booked-list')) || [];
     BookedList = BookedList.filter(itemId => itemId !== id);

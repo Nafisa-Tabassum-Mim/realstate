@@ -1,16 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../firebase/AuthProvider";
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import { IoEye } from "react-icons/io5";
+import { IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
 
     const { signIn, signInWithGoogle, signWithGithub } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    const [showPass, setshowPass] = useState(false)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -24,7 +27,7 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
-                toast.error(error.code)
+                toast.error("Email or Password is incorrect")
             })
     }
 
@@ -32,7 +35,6 @@ const Login = () => {
         signInWithGoogle()
             .then((result) => {
                 navigate(location?.state ? location.state : '/')
-
             })
             .catch((error) => {
                 toast.error(error.code)
@@ -62,7 +64,14 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                       <div className="relative">
+                       <input type={showPass ? "text" : "password"} placeholder="password" name="password" className="input input-bordered w-full" required />
+                        <span className="absolute top-3 right-3" onClick={() => setshowPass(!showPass)}>
+                            {showPass ? <IoEye /> : <IoEyeOff />
+                            }
+
+                        </span>
+                       </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
