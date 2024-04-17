@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
-    const { createUser, updateUserId } = useContext(AuthContext)
+    const { createUser, updateUserId,setLoading } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const [showPass, setshowPass] = useState(false)
@@ -46,6 +46,7 @@ const Register = () => {
                     })
             })
             .catch((error) => {
+                setLoading(false)
                 toast.error(error.code)
             })
     }

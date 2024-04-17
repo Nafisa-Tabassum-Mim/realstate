@@ -32,7 +32,7 @@ const EstateDetails = () => {
     return (
         <div className="flex flex-col md:flex-row items-center justify-center gap-x-14 mt-8 mx-4 mb-8">
               <Helmet>
-                <title> {estate.estate_title} </title>
+                <title> {estate.estate_title} | details </title>
             </Helmet>
             <div className="w-3/4 md:w-1/2">
                 <img src={estate.image} className="max-h-[560px] w-full mb-8" alt="estate Cover" />

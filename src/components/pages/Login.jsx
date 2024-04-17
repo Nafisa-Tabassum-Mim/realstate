@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
-    const { signIn, signInWithGoogle, signWithGithub } = useContext(AuthContext)
+    const { signIn, signInWithGoogle, signWithGithub ,setLoading} = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const [showPass, setshowPass] = useState(false)
@@ -20,7 +20,6 @@ const Login = () => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(email, password)
 
         signIn(email, password)
             .then(() => {
@@ -28,6 +27,7 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
+                setLoading(false)
                 toast.error("Email or Password is incorrect")
             })
     }
@@ -38,6 +38,7 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
+                setLoading(false)
                 toast.error(error.code)
             })
     }
@@ -47,6 +48,7 @@ const Login = () => {
                 navigate(location?.state ? location.state : '/')
             })
             .catch((error) => {
+                setLoading(false)
                 toast.error(error.code)
             })
     }

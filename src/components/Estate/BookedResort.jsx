@@ -70,7 +70,7 @@ const BookedResort = () => {
                                     <div className="my-2">
                                         <button className="text-[#328EFF] rounded-2xl bg-[#328EFF26] font-semibold px-4 mr-2 mb-2 py-[2px]">Location - {estate.location} </button>
                                         <Link to={`/${estate.id}`}>
-                                            <button className="text-white rounded-2xl bg-[#23BE0A] font-semibold px-4 mr-2 py-[2px]">View Details</button>
+                                            <button className="text-white rounded-2xl bg-blue-500 font-semibold px-4 mr-2 py-[2px]">View Details</button>
                                         </Link>
                                     </div>
                                     <div>

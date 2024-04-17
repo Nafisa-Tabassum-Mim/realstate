@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-
     // create id / signUp
     const createUser = (email, password) => {
         setLoading(true)
@@ -32,7 +31,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    // check if the user is there or not 
+    // check if the user is there or not (if user is there then loading is false)
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setUser(user)
@@ -42,6 +41,8 @@ const AuthProvider = ({ children }) => {
             unsubscribe()
         }
     }, [])
+
+
 
     // google login 
     const signInWithGoogle = () => {
@@ -72,7 +73,7 @@ const AuthProvider = ({ children }) => {
         signInWithGoogle,
         signWithGithub,
         updateUserId,
-        
+        setLoading
     }
 
 
